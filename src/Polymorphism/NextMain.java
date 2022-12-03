@@ -9,8 +9,8 @@ public class NextMain {
         Adventure jaws = (Adventure) Movie.getMovie("A", "Jaws");
         jaws.watchMovie();
 
-        Adventure jaws2 = (Adventure) Movie.getMovie("C", "Jaws");
-        jaws2.watchMovie();
+//        Adventure jaws2 = (Adventure) Movie.getMovie("C", "Jaws");
+//        jaws2.watchMovie();
 
 //        Object comedy = Movie.getMovie("C", "Airplane");
 //        comedy.watchMovie();
@@ -18,12 +18,22 @@ public class NextMain {
         Object comedy = Movie.getMovie("C", "Airplane");
         Movie comedyMovie = (Comedy) comedy;
         comedyMovie.watchMovie();
-        comedyMovie.watchComedy();
+//        comedyMovie.watchComedy();
 
         var airplane = Movie.getMovie("c", "Airplane");
         airplane.watchMovie();
 
         var plane =  new Comedy("Airplane");
         plane.watchComedy();
+
+        Object unknownObject = Movie.getMovie("S", "Airplane");
+        if (unknownObject.getClass().getSimpleName() == "Comedy") {
+            Comedy c = (Comedy) unknownObject;
+            c.watchComedy();
+        } else if (unknownObject instanceof Adventure) {
+            ((Adventure) unknownObject).watchAdventure();
+        } else if (unknownObject instanceof ScienceFiction syfy) {
+            syfy.watchScienceFiction();
+        }
     }
 }
